@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- This is the simple mapping file for the Address class. 
+But the important thing is generator class. Here, we are using "foreign" generator class that depends on the Employee class 
+primary key. -->
+
+<hibernate-mapping>
+	<class name="com.capg.Mappings.OneToOne.Address1" table="address212">
+	
+		<id name="addressId">
+			<generator class="foreign">
+				<param name="property">employee</param>
+			</generator>
+		</id>
+		
+		<property name="addressLine1"/>
+		<property name="city"/>
+		<property name="state"/>
+		<property name="country"/>
+		<property name="pincode"/>
+
+		<one-to-one name="employee"/>
+	</class>
+
+</hibernate-mapping>  

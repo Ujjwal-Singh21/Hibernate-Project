@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+		
+<hibernate-configuration>
+	<session-factory>
+	   <!-- Postgres -->
+		<!-- <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.password">ujjwal</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/employeedbhib</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property> -->
+		
+		 <!-- For MYSQL Database -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernatedb</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+	    <property name="format_sql">true</property>
+
+		<!-- Enabling second level (Session-Factory Object) cache -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		
+		<!-- Enabling second level cache for Queries also (HQL) -->
+		<property name="hibernate.cache.use_query_cache"> true </property>
+		
+		<mapping class="com.capg.SecondLevelCache.Employee7" />
+
+		<!-- <mapping class="com.capg.HibernateProject.Employee" /> -->
+
+		<mapping class="com.capg.HCQL.Employee5" />
+		<mapping class="com.capg.HibernateNamedQuery.Employee6" />
+
+		<!-- OTM Annotations -->
+		<mapping class="com.capg.Mappings.OneToMany.Questionn" />
+		<mapping class="com.capg.Mappings.OneToMany.Answerr" />
+
+		<!-- MTM Annotations -->
+		<mapping class="com.capg.Mappings.ManyToMany.Question2" />
+		<mapping class="com.capg.Mappings.ManyToMany.Answer2" />
+
+		<!-- OTO Annotations -->
+		<mapping class="com.capg.Mappings.OneToOne.Employee2" />
+		<mapping class="com.capg.Mappings.OneToOne.Address2" />
+
+		<!-- MTO Annotations -->
+		<mapping class="com.capg.Mappings.ManyToOne.Address4" />
+		<mapping class="com.capg.Mappings.ManyToOne.Employee4" />
+
+		<!-- important line while using mapping.xml file -->
+		<mapping resource="employeeBean.hbm.xml" />
+		<mapping resource="ListQuestion.hbm.xml" />
+		<mapping resource="SetQuestion.hbm.xml" />
+		<mapping resource="MapQuestion.hbm.xml" />
+
+		<!-- Mapping -->
+		<mapping resource="OTMQuestion.hbm.xml" />
+
+		<mapping resource="MTMQuestion.hbm.xml" />
+		<mapping resource="MTMAnswer.hbm.xml" />
+
+		<mapping resource="OTOemployee.hbm.xml" />
+		<mapping resource="OTOaddress.hbm.xml" />
+
+		<mapping resource="MTOemployee.hbm.xml" />
+		<mapping resource="MTOaddress.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

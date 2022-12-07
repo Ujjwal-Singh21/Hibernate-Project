@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>    
+  
+  <class name="com.capg.Mappings.ManyToMany.Question1" table="ques1911">  
+  
+        <id name="id" type="int">  
+            <column name="q_id" />  
+            <generator class="increment" />  
+        </id>  
+        
+        <property name="qname" />  
+  
+        <list name="answers" table="ques_ans1911" fetch="select" cascade="all">  
+            <key column="q_id" />  
+               <index column="type"></index>   
+            <many-to-many class="com.capg.Mappings.ManyToMany.Answer1" column="ans_id" />  
+        </list>  
+    </class>   
+</hibernate-mapping>       

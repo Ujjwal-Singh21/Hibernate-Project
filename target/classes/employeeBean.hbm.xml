@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+
+<hibernate-mapping>
+
+	<class name="com.capg.Collections.EmployeeBean" table="emptable">
+
+		<id name="empNo" column="empno" type="int" />
+		<property name="empName" column="empname" type="string" length="20" />
+		<property name="empSal" column="empsal" type="double" />
+
+		<list name="empListProj" table="emplistprojtab">
+			<key column="emplistprojfk" />
+			<index column="position" />
+			<element column="data" type="string" />
+		</list>
+
+		<set name="empSetProj" table="empsetprojtab">
+			<key column="empsetprojfk" />
+			<element column="data" type="string" />
+		</set>
+
+		<map name="empMapProj" table="empmapprojtab">
+			<key column="empmapprojfk" />
+			<index column="position" type="string" />
+			<element column="data" type="string" />
+		</map>
+
+	</class>
+
+</hibernate-mapping>
